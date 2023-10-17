@@ -267,12 +267,13 @@ async function balansEl(ADRES){
  
   bl = await web3.eth.getBalance(ADRES)
   // console.log(bl)
-  balans.textContent = bl
+  balans.textContent = bl/10**18
   
   
 }
 btnOtpr.addEventListener("click",()=>{
   otprZapros(inpAdress.value , inpKod.value, inpSum.value)
+  
 })
 async function otprZapros(adr,kod,sum){
   console.log(user.textContent)
@@ -285,16 +286,21 @@ async function otprZapros(adr,kod,sum){
   console.log(rezult)
   inpKod.value=''
    inpSum.value=''
+   div.innerHTML=''
+   getSpisok()
+   balansEl(user.textContent)
 }
 
 async function otmZapr(num){
   let rezult = await myContract.methods.otklZapr(num).send({from:user.textContent,gas:'677676'})
   console.log(rezult)
+  balansEl(user.textContent)
 
 }
 async function prZapr(n_zapr,kod_z){
 	let rezult = await  myContract.methods.prinZapr(n_zapr,kod_z).send({from:user.textContent,gas:'677676'})
 	console.log(rezult)
+	balansEl(user.textContent)
   
 }
 // prin.addEventListener("click",()=>{
@@ -318,17 +324,20 @@ function otrTrans(mas){
 		let stat = document.createElement('h2')
 		let summa = document.createElement('h2')
 		let name_ = document.createElement('h2')
-		let sogl = document.createElement('h2')
+		let sogls = document.createElement('h2')
 		let btn_otkl = document.createElement('button')
 		btn_otkl.textContent='otkl'
 		name_.textContent =`номер транзакции ${i}`
 		name_.className='name'
 		polch.textContent = `получатель ${mas[i].polych}`
 		stat.textContent = mas[i].status
-		summa.textContent=mas[i].sum
+		summa.textContent=`${mas[i].sum/10**18}eth`
 		// polch.className="div_p"
+		if(mas[i].sogl){
+			sogls.textContent='получил'
+		}
 		div_.append(name_)
-		div_.append(polch,stat,summa)
+		div_.append(polch,stat,sogls,summa)
 		if(stat.textContent == 'true'){
 			div_.append(btn_otkl)
 		}
@@ -337,6 +346,9 @@ function otrTrans(mas){
 		btn_otkl.addEventListener('click',()=>{
 			console.log('sadkmvksjdnk')
 			otmZapr(i)
+			btn_otkl.remove()
+			stat.textContent='false'
+			balansEl(user.textContent)
 		})
 	}
 	if(mas[i].polych == user.textContent){
@@ -347,14 +359,18 @@ function otrTrans(mas){
 		let name_1 = document.createElement('h2')
 		let btn_prn= document.createElement('button')
 		let inp_pr = document.createElement('input')
+		let sogls1 = document.createElement('h2')
 		btn_prn.textContent='prn'
 		name_1.textContent =`номер транзакции ${i}`
 		name_1.className='name'
 		
 		otpr.textContent = `отправитель ${mas[i].otprav}`
 		stat1.textContent = mas[i].status
-		summa1.textContent=mas[i].sum
-		div_1.append(name_1,otpr,stat1,summa1)
+		summa1.textContent=`${mas[i].sum/10**18}eth`
+		div_1.append(name_1,otpr,stat1,sogls1,summa1)
+		if(!mas[i].sogl && !mas[i].status){
+			sogls1.textContent='отменен'
+		}
 		if(stat1.textContent == 'true'){
 			div_1.append(inp_pr,btn_prn)
 		}
@@ -362,6 +378,10 @@ function otrTrans(mas){
 		btn_prn.addEventListener('click',()=>{
 			let hesh = web3.utils.keccak256(inp_pr.value)
 			prZapr(i,hesh)
+			btn_prn.remove()
+			inp_pr.remove()
+			stat1.textContent='false'
+			
 		})
 	}
  }
