@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Переводы</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <select id="adress" onclick="usName(selectAdress.value)">
+    </select>
+    <h1 class="user" id="user"></h1>
+    <h2>Ваш баланс:</h2>
+    <h2 id="balans"></h2>
+<!-- 
+    <div>
+      <p class="number"></p>
+      <button onClick="getNumber()">Получить число</button>
+    </div>
+
+    <div>
+      <input type="number" class="setNum" />
+      <button class="addBtn" onClick="setNumber()">Добавить число</button>
+    </div> -->
+
+
+    <select id="adressPoluch" onclick="">
+    </select>
+     <input id="inpKod" placeholder="Код слово">
+     <input id="inpSum" placeholder="Сумма">
+    <button id="btnOtpr">Отправить</button>
+ 
+      <h2>отклонить</h2>
+      <input id="inpZapr" placeholder="n zapr">
+      <button id="otkl" class="otkl">отклонить</button>
+      <h2>принять</h2>
+      <input id="zpPr" placeholder="n zapr">
+      <input id="kdPr" placeholder="Код слово">
+      <button id="prin">принять</button>
+     
+      <div class="trnz">
+        <h1>отправленные</h1>
+        <div id="div" class="divs"> 
+        </div>
+        <h1>Принять:</h1>
+        <div id="div_pr"></div>
+      </div>
+      
+
+      <script src="web3.min.js"></script>
+      <script src="app.js"></script>
+    </body>
+</html>
