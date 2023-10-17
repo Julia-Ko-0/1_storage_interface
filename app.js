@@ -211,12 +211,12 @@ let btnOtpr = document.getElementById('btnOtpr')
 let inpAdress = document.getElementById('adressPoluch')
 let inpKod = document.getElementById('inpKod')
 let inpSum = document.getElementById('inpSum')
-let inpZapr = document.getElementById('inpZapr')
+// let inpZapr = document.getElementById('inpZapr')
 // let btnOtkl = document.getElementById('otkl')
-let btnOtkl = document.querySelector('.otkl')
-let prin = document.getElementById('prin')
-let zpPr=document.getElementById('zpPr')
-let prKd = document.getElementById('kdPr')
+// let btnOtkl = document.querySelector('.otkl')
+// let prin = document.getElementById('prin')
+// let zpPr=document.getElementById('zpPr')
+// let prKd = document.getElementById('kdPr')
 let div = document.getElementById('div')
 let div_pr =document.getElementById('div_pr') 
 
@@ -297,17 +297,17 @@ async function prZapr(n_zapr,kod_z){
 	console.log(rezult)
   
 }
-prin.addEventListener("click",()=>{
-	console.log(prKd.value)
-	let hesh = web3.utils.keccak256(prKd.value)
-	prZapr(zpPr.value,hesh)
-   })
+// prin.addEventListener("click",()=>{
+// 	console.log(prKd.value)
+// 	let hesh = web3.utils.keccak256(prKd.value)
+// 	prZapr(zpPr.value,hesh)
+//    })
 
 
-btnOtkl.addEventListener("click",()=>{
-	console.log("sd;lfsdl")
-	otmZapr(inpZapr.value)
-})
+// btnOtkl.addEventListener("click",()=>{
+// 	console.log("sd;lfsdl")
+// 	otmZapr(inpZapr.value)
+// })
 function otrTrans(mas){
  for(let i=0;i<mas.length;i++){
 	// console.log(user.textContent)
@@ -328,13 +328,15 @@ function otrTrans(mas){
 		summa.textContent=mas[i].sum
 		// polch.className="div_p"
 		div_.append(name_)
-		div_.append(polch,stat,summa,btn_otkl)
+		div_.append(polch,stat,summa)
+		if(stat.textContent == 'true'){
+			div_.append(btn_otkl)
+		}
 		div.className="divs"
 		div.append(div_)
 		btn_otkl.addEventListener('click',()=>{
 			console.log('sadkmvksjdnk')
 			otmZapr(i)
-			// stat.textContent='false'
 		})
 	}
 	if(mas[i].polych == user.textContent){
