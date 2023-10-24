@@ -3,11 +3,6 @@
 //0x34f291c0b5f0c13c8f43e9d37c04094c22234da43f4040adb36654c98235b4b3
 abi = [
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -18,17 +13,79 @@ abi = [
 				"internalType": "string",
 				"name": "_name",
 				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_role",
-				"type": "uint256"
 			}
 		],
-		"name": "addPolz",
+		"name": "addAdm",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_polz",
+				"type": "address"
+			}
+		],
+		"name": "delAdm",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_zapr",
+				"type": "uint256"
+			}
+		],
+		"name": "otklZapr",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_adres",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_kod",
+				"type": "bytes32"
+			}
+		],
+		"name": "otpZapr",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "zapr",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_kod",
+				"type": "bytes32"
+			}
+		],
+		"name": "prinZapr",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
 		"inputs": [
@@ -77,18 +134,13 @@ abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "address",
 				"name": "",
-				"type": "uint256"
+				"type": "address"
 			}
 		],
 		"name": "appPolz",
 		"outputs": [
-			{
-				"internalType": "address",
-				"name": "polzov",
-				"type": "address"
-			},
 			{
 				"internalType": "string",
 				"name": "name",
@@ -151,55 +203,234 @@ abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_zapr",
-				"type": "uint256"
-			}
-		],
-		"name": "otklZapr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address",
-				"name": "_adres",
+				"name": "_adr",
 				"type": "address"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "_kod",
-				"type": "bytes32"
 			}
 		],
-		"name": "otpZapr",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"name": "returnMapping",
+		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "zapr",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "_kod",
-				"type": "bytes32"
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct perevod.polz",
+				"name": "",
+				"type": "tuple"
 			}
 		],
-		"name": "prinZapr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	}
 ]
-// let contractAddress = "0x4756B6724a7c39756B01E899c5f48DA9eaa21A23";
-let contractAddress = "0x6107106b2178259A3Be9b12AfAe189E2e1a90526";
+// abi = [
+// 	{
+// 		"inputs": [],
+// 		"stateMutability": "nonpayable",
+// 		"type": "constructor"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_polz",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "string",
+// 				"name": "_name",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "_role",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "addPolz",
+// 		"outputs": [],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "appPerev",
+// 		"outputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "otprav",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "address",
+// 				"name": "polych",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "bool",
+// 				"name": "status",
+// 				"type": "bool"
+// 			},
+// 			{
+// 				"internalType": "bool",
+// 				"name": "sogl",
+// 				"type": "bool"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "sum",
+// 				"type": "uint256"
+// 			},
+// 			{
+// 				"internalType": "bytes32",
+// 				"name": "kod",
+// 				"type": "bytes32"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "appPolz",
+// 		"outputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "polzov",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "string",
+// 				"name": "name",
+// 				"type": "string"
+// 			},
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "role",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [],
+// 		"name": "get_transf",
+// 		"outputs": [
+// 			{
+// 				"components": [
+// 					{
+// 						"internalType": "address",
+// 						"name": "otprav",
+// 						"type": "address"
+// 					},
+// 					{
+// 						"internalType": "address",
+// 						"name": "polych",
+// 						"type": "address"
+// 					},
+// 					{
+// 						"internalType": "bool",
+// 						"name": "status",
+// 						"type": "bool"
+// 					},
+// 					{
+// 						"internalType": "bool",
+// 						"name": "sogl",
+// 						"type": "bool"
+// 					},
+// 					{
+// 						"internalType": "uint256",
+// 						"name": "sum",
+// 						"type": "uint256"
+// 					},
+// 					{
+// 						"internalType": "bytes32",
+// 						"name": "kod",
+// 						"type": "bytes32"
+// 					}
+// 				],
+// 				"internalType": "struct perevod.perev[]",
+// 				"name": "",
+// 				"type": "tuple[]"
+// 			}
+// 		],
+// 		"stateMutability": "view",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "_zapr",
+// 				"type": "uint256"
+// 			}
+// 		],
+// 		"name": "otklZapr",
+// 		"outputs": [],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "address",
+// 				"name": "_adres",
+// 				"type": "address"
+// 			},
+// 			{
+// 				"internalType": "bytes32",
+// 				"name": "_kod",
+// 				"type": "bytes32"
+// 			}
+// 		],
+// 		"name": "otpZapr",
+// 		"outputs": [],
+// 		"stateMutability": "payable",
+// 		"type": "function"
+// 	},
+// 	{
+// 		"inputs": [
+// 			{
+// 				"internalType": "uint256",
+// 				"name": "zapr",
+// 				"type": "uint256"
+// 			},
+// 			{
+// 				"internalType": "bytes32",
+// 				"name": "_kod",
+// 				"type": "bytes32"
+// 			}
+// 		],
+// 		"name": "prinZapr",
+// 		"outputs": [],
+// 		"stateMutability": "nonpayable",
+// 		"type": "function"
+// 	}
+// ]
+let contractAddress = "0x87eB086Ad5F0735Fde3E871551a49BA4E787ffa6";
+// let contractAddress = "0x6107106b2178259A3Be9b12AfAe189E2e1a90526";
 
 let web3, accounts
 let selectAdress = document.getElementById('adress')
@@ -207,7 +438,7 @@ let selectAdressPoluch = document.getElementById('adressPoluch')
 let user = document.getElementById('user')
 let balans = document.getElementById('balans')
 let btnOtpr = document.getElementById('btnOtpr')
-
+let role = document.getElementById('role_A')
 let inpAdress = document.getElementById('adressPoluch')
 let inpKod = document.getElementById('inpKod')
 let inpSum = document.getElementById('inpSum')
@@ -219,7 +450,7 @@ let inpSum = document.getElementById('inpSum')
 // let prKd = document.getElementById('kdPr')
 let div = document.getElementById('div')
 let div_pr =document.getElementById('div_pr') 
-
+let select = document.createElement('select')
 
 async function getAccounts() {
   web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
@@ -231,8 +462,65 @@ async function getAccounts() {
 }
 getAccounts();
 let myContract = new web3.eth.Contract(abi,contractAddress)
+let div_inp = document.getElementById('div_inp')
+async function addRole(){
+	let map = await myContract.methods.returnMapping(user.textContent).call()
+	console.log('map',map)
+	console.log(map.role)
+	if(map.role == 1){
+		role.textContent = 'админ'
+		div_inp.innerHTML= ''
+		let adr_n_adm = document.createElement('input')
+		adr_n_adm.placeholder = 'адресс'
+		let name_n_adm = document.createElement('input')
+		name_n_adm.placeholder = 'name'
+		let b_Ad = document.createElement('button')
+		let adr_d_adm = document.createElement('input')
+		adr_d_adm.placeholder = 'адресс'
+		let b_Ad_d = document.createElement('button')
+		b_Ad.textContent ='new adm'
+		b_Ad_d.textContent ='del adm'
+		div_inp.append(adr_n_adm,name_n_adm,b_Ad)
+		div_inp.append(adr_d_adm,b_Ad_d)
+		b_Ad.addEventListener('click',()=>{
+			// console.log(adr_n_adm.value)
+			crAdm(adr_n_adm.value,name_n_adm.value)
+			adr_n_adm.value = ''
+			name_n_adm.value=''
+
+		})
+		b_Ad_d.addEventListener('click',()=>{
+			// console.log(adr_n_adm.value)
+			delAdm(adr_d_adm.value)
+			adr_d_adm.value=''
+
+		})
 
 
+	}
+	else{
+		div_inp.innerHTML= ''
+		role.textContent = ''
+	}
+
+}
+// function crShabl(){
+
+// }
+
+// let b_map = document.getElementById('b_map')
+// b_map.addEventListener('click',()=>{
+// 	console.log('aasassasa')
+// 	addRole()
+// })
+async function crAdm(_adrs,_name){
+	let a = await myContract.methods.addAdm(_adrs,_name).send({from:user.textContent,gas:'677676'})
+	console.log(a)
+}
+async function delAdm(_adrs){
+	let a = await myContract.methods.delAdm(_adrs).send({from:user.textContent,gas:'677676'})
+	console.log(a)
+}
 function crAdress(mas){
   for(let i = 0; i< mas.length;i++){
     let adress = document.createElement('option')
@@ -241,16 +529,14 @@ function crAdress(mas){
     user.textContent = mas[0]
   }
   balansEl(mas[0])
+  addRole()
+ 
 }
 function crPol(mas){
   for(let i = 0; i< mas.length;i++){
     let adressPl = document.createElement('option')
     adressPl.textContent = mas[i]
     selectAdressPoluch.append(adressPl)
-	
-  
-
-    // user.textContent = mas[0]
   }
 }
 
@@ -258,10 +544,12 @@ function crPol(mas){
 function usName(name){
   user.textContent = name
   balansEl(name)
+  addRole()
 
   div.innerHTML=''
   div_pr.innerHTML=''
 	getSpisok()
+	// addRole()
 }
 async function balansEl(ADRES){
  

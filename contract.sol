@@ -1,21 +1,8 @@
-// SPDX-License-Identifier: GPL-3.0
-
-pragma solidity >=0.7.0 <0.9.0;
-
-/**
- * @title Storage
- * @dev Store & retrieve value in a variable
- * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
- */
-contract Storage {
-
-    uint number;
-
-    /**// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0;
 contract perevod{
     struct polz{
-        address polzov;
+        // address adr;
         string name;
         uint role;//1-админ 0-пользователь
     }
@@ -27,21 +14,37 @@ contract perevod{
         uint sum;
         bytes32 kod;
     }
-    polz[] public appPolz;
+    // polz[] public appPolz;
+      mapping (address => polz) public appPolz;
     perev[] public  appPerev;
 
-    address admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+    // address admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
     constructor(){
-        appPolz.push(polz(0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,"ivan",0));
-        appPolz.push(polz(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,"petr",1));
-        appPolz.push(polz( 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db,"ira",0));
-        appPolz.push(polz(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB,"ola",0));
+        appPolz[0xFB07b0531e1c23D0A3A871CFd1Bf45da1CE93eAD] = (polz("ivan",1));
+        appPolz[0x49adb3e43Af62C7c60dd7eB2BA497Ed1a73DD914]=(polz("petr",1));
+
+        // appPolz.push(polz( 0xFB07b0531e1c23D0A3A871CFd1Bf45da1CE93eAD,"ira",1));
+        // appPolz.push(polz(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB,"ola",0));
     }
 
-    function addPolz(address _polz,string memory _name,uint _role) public {
-        require(msg.sender == admin);
-        appPolz.push(polz(_polz,_name,_role));
+    function addAdm(address _polz,string memory _name) public {
+      require(1 == appPolz[msg.sender].role);
+      appPolz[_polz] = (polz(_name,1));
     }
+    function delAdm(address _polz)public {
+        require(1 == appPolz[msg.sender].role);
+        require(appPolz[_polz].role == 1);
+        appPolz[_polz].role = 0;
+    }
+    // function delAdm(address _polz)public {
+    //     for(uint i = 0; i < appPolz.length ;i++){
+    //         if(_polz == appPolz[i].adr && appPolz[i].role == 1){
+    //                 appPolz[i].role = 0;
+    //                  return ;
+    //         }
+            
+    //     }
+    // }
     //отправка
     function otpZapr(address _adres,bytes32 _kod) public payable {
         require(msg.sender != _adres); 
@@ -78,20 +81,7 @@ contract perevod{
         return(appPerev);
         
     }
-}
-
-     * @dev Store value in variable
-     * @param num value to store
-     */
-    function store(uint256 num) public {
-        number = num;
-    }
-
-    /**
-     * @dev Return value 
-     * @return value of 'number'
-     */
-    function retrieve() public view returns (uint256){
-        return number;
+     function returnMapping(address _adr) public view returns ( polz memory)  {
+        return (appPolz[_adr]);
     }
 }
