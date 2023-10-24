@@ -3,11 +3,6 @@
 //0x34f291c0b5f0c13c8f43e9d37c04094c22234da43f4040adb36654c98235b4b3
 abi =[
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -21,6 +16,104 @@ abi =[
 			}
 		],
 		"name": "addAdm",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "a",
+				"type": "uint256"
+			}
+		],
+		"name": "delAdm",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "gol_",
+				"type": "uint256"
+			}
+		],
+		"name": "golFun",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_zapr",
+				"type": "uint256"
+			}
+		],
+		"name": "otklZapr",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_adres",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_kod",
+				"type": "bytes32"
+			}
+		],
+		"name": "otpZapr",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "zapr",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_kod",
+				"type": "bytes32"
+			}
+		],
+		"name": "prinZapr",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "zakGolos",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -162,19 +255,6 @@ abi =[
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "a",
-				"type": "uint256"
-			}
-		],
-		"name": "delAdm",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "get_Golos",
 		"outputs": [
@@ -212,6 +292,26 @@ abi =[
 					}
 				],
 				"internalType": "struct perevod.golosov[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "get_polz",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "adrs",
+						"type": "address"
+					}
+				],
+				"internalType": "struct perevod.polzAdmin[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -267,73 +367,6 @@ abi =[
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "gol_",
-				"type": "uint256"
-			}
-		],
-		"name": "golFun",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_zapr",
-				"type": "uint256"
-			}
-		],
-		"name": "otklZapr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_adres",
-				"type": "address"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "_kod",
-				"type": "bytes32"
-			}
-		],
-		"name": "otpZapr",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "zapr",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "_kod",
-				"type": "bytes32"
-			}
-		],
-		"name": "prinZapr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address",
 				"name": "_adr",
 				"type": "address"
@@ -366,219 +399,9 @@ abi =[
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			}
-		],
-		"name": "zakGolos",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	}
 ]
-// abi = [
-// 	{
-// 		"inputs": [],
-// 		"stateMutability": "nonpayable",
-// 		"type": "constructor"
-// 	},
-// 	{
-// 		"inputs": [
-// 			{
-// 				"internalType": "address",
-// 				"name": "_polz",
-// 				"type": "address"
-// 			},
-// 			{
-// 				"internalType": "string",
-// 				"name": "_name",
-// 				"type": "string"
-// 			},
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "_role",
-// 				"type": "uint256"
-// 			}
-// 		],
-// 		"name": "addPolz",
-// 		"outputs": [],
-// 		"stateMutability": "nonpayable",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "",
-// 				"type": "uint256"
-// 			}
-// 		],
-// 		"name": "appPerev",
-// 		"outputs": [
-// 			{
-// 				"internalType": "address",
-// 				"name": "otprav",
-// 				"type": "address"
-// 			},
-// 			{
-// 				"internalType": "address",
-// 				"name": "polych",
-// 				"type": "address"
-// 			},
-// 			{
-// 				"internalType": "bool",
-// 				"name": "status",
-// 				"type": "bool"
-// 			},
-// 			{
-// 				"internalType": "bool",
-// 				"name": "sogl",
-// 				"type": "bool"
-// 			},
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "sum",
-// 				"type": "uint256"
-// 			},
-// 			{
-// 				"internalType": "bytes32",
-// 				"name": "kod",
-// 				"type": "bytes32"
-// 			}
-// 		],
-// 		"stateMutability": "view",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "",
-// 				"type": "uint256"
-// 			}
-// 		],
-// 		"name": "appPolz",
-// 		"outputs": [
-// 			{
-// 				"internalType": "address",
-// 				"name": "polzov",
-// 				"type": "address"
-// 			},
-// 			{
-// 				"internalType": "string",
-// 				"name": "name",
-// 				"type": "string"
-// 			},
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "role",
-// 				"type": "uint256"
-// 			}
-// 		],
-// 		"stateMutability": "view",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [],
-// 		"name": "get_transf",
-// 		"outputs": [
-// 			{
-// 				"components": [
-// 					{
-// 						"internalType": "address",
-// 						"name": "otprav",
-// 						"type": "address"
-// 					},
-// 					{
-// 						"internalType": "address",
-// 						"name": "polych",
-// 						"type": "address"
-// 					},
-// 					{
-// 						"internalType": "bool",
-// 						"name": "status",
-// 						"type": "bool"
-// 					},
-// 					{
-// 						"internalType": "bool",
-// 						"name": "sogl",
-// 						"type": "bool"
-// 					},
-// 					{
-// 						"internalType": "uint256",
-// 						"name": "sum",
-// 						"type": "uint256"
-// 					},
-// 					{
-// 						"internalType": "bytes32",
-// 						"name": "kod",
-// 						"type": "bytes32"
-// 					}
-// 				],
-// 				"internalType": "struct perevod.perev[]",
-// 				"name": "",
-// 				"type": "tuple[]"
-// 			}
-// 		],
-// 		"stateMutability": "view",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "_zapr",
-// 				"type": "uint256"
-// 			}
-// 		],
-// 		"name": "otklZapr",
-// 		"outputs": [],
-// 		"stateMutability": "nonpayable",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [
-// 			{
-// 				"internalType": "address",
-// 				"name": "_adres",
-// 				"type": "address"
-// 			},
-// 			{
-// 				"internalType": "bytes32",
-// 				"name": "_kod",
-// 				"type": "bytes32"
-// 			}
-// 		],
-// 		"name": "otpZapr",
-// 		"outputs": [],
-// 		"stateMutability": "payable",
-// 		"type": "function"
-// 	},
-// 	{
-// 		"inputs": [
-// 			{
-// 				"internalType": "uint256",
-// 				"name": "zapr",
-// 				"type": "uint256"
-// 			},
-// 			{
-// 				"internalType": "bytes32",
-// 				"name": "_kod",
-// 				"type": "bytes32"
-// 			}
-// 		],
-// 		"name": "prinZapr",
-// 		"outputs": [],
-// 		"stateMutability": "nonpayable",
-// 		"type": "function"
-// 	}
-// ]
-let contractAddress = "0x89b626b21F888D3B6d01e4C6e9d0D5104C8Bc2BB";
+let contractAddress = "0x7cE3329816B4DA05964eB8AD62dfFF474D86BeeD";
 // let contractAddress = "0x6107106b2178259A3Be9b12AfAe189E2e1a90526";
 
 let web3, accounts
@@ -776,7 +599,10 @@ function crGolos(mas){
 				btn_sogl.addEventListener('click',()=>{
 					prAdm( mas[i].id,1)
 					polGol+=1
-					if (polGol==)
+					
+					if (polGol==mas_adm.length){
+						zacGplos(mas[i].id)
+					}
 				})
 				otk.addEventListener('click',()=>{
 					prAdm( mas[i].id,0)
@@ -790,6 +616,17 @@ function crGolos(mas){
 		
 	}
 }
+let mas_adm = []
+async function get_polz_Adm(){
+	await myContract.methods.get_polz().call((eror,result)=>{
+		if(!eror){
+			mas_adm = result
+			console.log(mas_adm)
+		}
+		else{console.error(eror)}
+	})
+}
+get_polz_Adm()
 // async function ydAdm(){
 
 // }
