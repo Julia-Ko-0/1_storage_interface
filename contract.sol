@@ -5,6 +5,10 @@ contract perevod{
         // address adr;
         string name;
         uint role;//1-админ 0-пользователь
+        bool golos;
+    }
+    struct polzAdmin{
+        address adrs;
     }
     struct perev{
         address otprav;
@@ -14,27 +18,74 @@ contract perevod{
         uint sum;
         bytes32 kod;
     }
+    struct golosov{
+        uint id;
+        address kand;
+        string name;
+        uint polGolos;
+        uint otrGolos;
+        bool status;
+    }
     // polz[] public appPolz;
-      mapping (address => polz) public appPolz;
+    mapping (address => polz) public appPolz;
+    polzAdmin[] public appPzlt;
     perev[] public  appPerev;
+    golosov[] public appGolosov;
 
     // address admin = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
     constructor(){
-        appPolz[0xFB07b0531e1c23D0A3A871CFd1Bf45da1CE93eAD] = (polz("ivan",1));
-        appPolz[0x49adb3e43Af62C7c60dd7eB2BA497Ed1a73DD914]=(polz("petr",1));
-
+        appPolz[0xFB07b0531e1c23D0A3A871CFd1Bf45da1CE93eAD] = (polz("ivan",1,false));
+        appPolz[0x49adb3e43Af62C7c60dd7eB2BA497Ed1a73DD914]=(polz("petr",1,false));
+        //   appPolz[0x5B38Da6a701c568545dCfcB03FcB875f56beddC4] = (polz("ivan",1,false));
+        // appPolz[0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2]=(polz("petr",1,false));
+        appPzlt.push(polzAdmin(0xFB07b0531e1c23D0A3A871CFd1Bf45da1CE93eAD));
+        appPzlt.push(polzAdmin(0x49adb3e43Af62C7c60dd7eB2BA497Ed1a73DD914));
         // appPolz.push(polz( 0xFB07b0531e1c23D0A3A871CFd1Bf45da1CE93eAD,"ira",1));
         // appPolz.push(polz(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB,"ola",0));
     }
 
     function addAdm(address _polz,string memory _name) public {
-      require(1 == appPolz[msg.sender].role);
-      appPolz[_polz] = (polz(_name,1));
+      require(1 == appPolz[msg.sender].role,"AAAA");
+      require(msg.sender != _polz);
+      appGolosov.push(golosov(appGolosov.length , _polz,_name ,1,0,true ));
+      appPolz[msg.sender].golos = true;
+    //   appPolz[_polz] = (polz(_name,1));
+    //   appPzlt.push(polzAdmin(_polz));
     }
-    function delAdm(address _polz)public {
+    function delAdm(uint a)public {
         require(1 == appPolz[msg.sender].role);
-        require(appPolz[_polz].role == 1);
-        appPolz[_polz].role = 0;
+        // require(appPolz[_polz].role == 1)
+        appPolz[appPzlt[a].adrs].role = 0;
+        delete appPzlt[a];
+        for(uint i = a;i<appPzlt.length-1;i++){
+            appPzlt[i] = appPzlt[i+1];
+        }
+        appPzlt.pop();
+    }
+    function golFun(uint _id,uint gol_) public {
+        require( appGolosov[_id].status == true);
+        require(1 == appPolz[msg.sender].role );
+        require(false == appPolz[msg.sender].golos );
+        if(gol_ == 1){
+            appGolosov[_id].polGolos +=1;
+        }
+        else {
+            appGolosov[_id].otrGolos +=1;
+        }
+        appPolz[msg.sender].golos = true;
+    }
+    function zakGolos(uint _id) public {
+        require(1 == appPolz[msg.sender].role );
+        require(appGolosov[_id].otrGolos + appGolosov[_id].polGolos == appPzlt.length);
+        if(appPzlt.length == appGolosov[_id].polGolos){
+            appPolz[appGolosov[_id].kand] = (polz(appGolosov[_id].name,1,false));
+            appPzlt.push(polzAdmin(appGolosov[_id].kand));
+            appGolosov[_id].status = false;
+            for(uint i = 0;i<appPzlt.length;i++){
+            appPolz[appPzlt[i].adrs].golos = false;
+            }
+        }
+        
     }
     // function delAdm(address _polz)public {
     //     for(uint i = 0; i < appPolz.length ;i++){
@@ -84,4 +135,7 @@ contract perevod{
      function returnMapping(address _adr) public view returns ( polz memory)  {
         return (appPolz[_adr]);
     }
+    //   function returnMappingMas(address _adr) public view returns ( mas[] memory)  {
+    //     return (mas[appPolz]);
+    // }
 }

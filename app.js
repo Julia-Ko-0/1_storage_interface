@@ -1,7 +1,12 @@
 //0x1E1BB5A77bBd7f8b48B87758b56Cc145333F306a
 // import abi from './abi.js'
 //0x34f291c0b5f0c13c8f43e9d37c04094c22234da43f4040adb36654c98235b4b3
-abi = [
+abi =[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
 	{
 		"inputs": [
 			{
@@ -23,69 +28,46 @@ abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_polz",
-				"type": "address"
-			}
-		],
-		"name": "delAdm",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
-				"name": "_zapr",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "otklZapr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_adres",
-				"type": "address"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "_kod",
-				"type": "bytes32"
-			}
-		],
-		"name": "otpZapr",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"name": "appGolosov",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "zapr",
+				"name": "id",
 				"type": "uint256"
 			},
 			{
-				"internalType": "bytes32",
-				"name": "_kod",
-				"type": "bytes32"
+				"internalType": "address",
+				"name": "kand",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "polGolos",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "otrGolos",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "status",
+				"type": "bool"
 			}
 		],
-		"name": "prinZapr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	},
 	{
 		"inputs": [
@@ -150,6 +132,88 @@ abi = [
 				"internalType": "uint256",
 				"name": "role",
 				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "golos",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "appPzlt",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "adrs",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "a",
+				"type": "uint256"
+			}
+		],
+		"name": "delAdm",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "get_Golos",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "kand",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "polGolos",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "otrGolos",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct perevod.golosov[]",
+				"name": "",
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
@@ -203,6 +267,73 @@ abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "gol_",
+				"type": "uint256"
+			}
+		],
+		"name": "golFun",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_zapr",
+				"type": "uint256"
+			}
+		],
+		"name": "otklZapr",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_adres",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_kod",
+				"type": "bytes32"
+			}
+		],
+		"name": "otpZapr",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "zapr",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_kod",
+				"type": "bytes32"
+			}
+		],
+		"name": "prinZapr",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "_adr",
 				"type": "address"
@@ -221,6 +352,11 @@ abi = [
 						"internalType": "uint256",
 						"name": "role",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "golos",
+						"type": "bool"
 					}
 				],
 				"internalType": "struct perevod.polz",
@@ -229,6 +365,19 @@ abi = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "zakGolos",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
@@ -429,7 +578,7 @@ abi = [
 // 		"type": "function"
 // 	}
 // ]
-let contractAddress = "0x87eB086Ad5F0735Fde3E871551a49BA4E787ffa6";
+let contractAddress = "0x89b626b21F888D3B6d01e4C6e9d0D5104C8Bc2BB";
 // let contractAddress = "0x6107106b2178259A3Be9b12AfAe189E2e1a90526";
 
 let web3, accounts
@@ -459,6 +608,7 @@ async function getAccounts() {
 
   crAdress(accounts)
   crPol(accounts)
+
 }
 getAccounts();
 let myContract = new web3.eth.Contract(abi,contractAddress)
@@ -468,6 +618,7 @@ async function addRole(){
 	console.log('map',map)
 	console.log(map.role)
 	if(map.role == 1){
+		getGolos()
 		role.textContent = 'админ'
 		div_inp.innerHTML= ''
 		let adr_n_adm = document.createElement('input')
@@ -481,20 +632,21 @@ async function addRole(){
 		b_Ad.textContent ='new adm'
 		b_Ad_d.textContent ='del adm'
 		div_inp.append(adr_n_adm,name_n_adm,b_Ad)
-		div_inp.append(adr_d_adm,b_Ad_d)
+		// div_inp.append(adr_d_adm,b_Ad_d)
 		b_Ad.addEventListener('click',()=>{
 			// console.log(adr_n_adm.value)
 			crAdm(adr_n_adm.value,name_n_adm.value)
 			adr_n_adm.value = ''
 			name_n_adm.value=''
 
-		})
-		b_Ad_d.addEventListener('click',()=>{
-			// console.log(adr_n_adm.value)
-			delAdm(adr_d_adm.value)
-			adr_d_adm.value=''
 
 		})
+		// b_Ad_d.addEventListener('click',()=>{
+		// 	// console.log(adr_n_adm.value)
+		// 	delAdm(adr_d_adm.value)
+		// 	adr_d_adm.value=''
+
+		// })
 
 
 	}
@@ -517,10 +669,10 @@ async function crAdm(_adrs,_name){
 	let a = await myContract.methods.addAdm(_adrs,_name).send({from:user.textContent,gas:'677676'})
 	console.log(a)
 }
-async function delAdm(_adrs){
-	let a = await myContract.methods.delAdm(_adrs).send({from:user.textContent,gas:'677676'})
-	console.log(a)
-}
+// async function delAdm(_adrs){
+// 	let a = await myContract.methods.delAdm(_adrs).send({from:user.textContent,gas:'677676'})
+// 	console.log(a)
+// }
 function crAdress(mas){
   for(let i = 0; i< mas.length;i++){
     let adress = document.createElement('option')
@@ -531,6 +683,19 @@ function crAdress(mas){
   balansEl(mas[0])
   addRole()
  
+}
+async function getGolos(){
+	let res = await myContract.methods.get_Golos().call((eror,result)=>{
+		if(!eror){
+			myArray = result
+			console.log(myArray)
+			crGolos(myArray)
+		}
+		else{console.error(eror)}
+	})
+	// console.log('golos:',res)
+	// crGolos(res)
+
 }
 function crPol(mas){
   for(let i = 0; i< mas.length;i++){
@@ -591,17 +756,53 @@ async function prZapr(n_zapr,kod_z){
 	balansEl(user.textContent)
   
 }
-// prin.addEventListener("click",()=>{
-// 	console.log(prKd.value)
-// 	let hesh = web3.utils.keccak256(prKd.value)
-// 	prZapr(zpPr.value,hesh)
-//    })
+let dv_gol = document.getElementById('shabl')
+function crGolos(mas){
+	dv_gol.innerHTML=''
+	for(let i = 0;i<mas.length;i++){
+		if(role.textContent =='админ'){
+			if(mas[i].status == true ){
+				let polGol = 1
+				let adr_kan = document.createElement('h2')
+				let btn_sogl = document.createElement('button')
+				let otk = document.createElement('button')
+				// let zakr = document.createElement('button')
+				console.log(mas[i].kand)
+				adr_kan.textContent = mas[i].kand
+				btn_sogl.textContent = 'sogl'
+				otk.textContent = 'net'
+				// zakr.textContent = 'zakr'
+				dv_gol.append(adr_kan,btn_sogl,otk)
+				btn_sogl.addEventListener('click',()=>{
+					prAdm( mas[i].id,1)
+					polGol+=1
+					if (polGol==)
+				})
+				otk.addEventListener('click',()=>{
+					prAdm( mas[i].id,0)
+					zacGplos(mas[i].id)
+				})
+				// zakr.addEventListener('click',()=>{
+				// 	zacGplos(mas[i].id)
+				// })
+			}
+		}
+		
+	}
+}
+// async function ydAdm(){
 
-
-// btnOtkl.addEventListener("click",()=>{
-// 	console.log("sd;lfsdl")
-// 	otmZapr(inpZapr.value)
-// })
+// }
+async function zacGplos(id){
+	
+	await  myContract.methods.zakGolos(id)
+	.send({from:user.textContent, gas:'677676'})
+	
+}
+async function prAdm(id_golos,golos){
+	let rezult = await  myContract.methods.golFun(id_golos,golos)
+	.send({from:user.textContent, gas:'677676'})
+}
 function otrTrans(mas){
  for(let i=0;i<mas.length;i++){
 	// console.log(user.textContent)
